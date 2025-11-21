@@ -69,11 +69,11 @@
         font-weight: var(--font-family-code-weight-light);
         + p:not(ol p, ul p) {
             /* Not on this page e.g. >> /extending/vite-in-addons */
-            padding-block-start: var(--spacing-s-1);
+            padding-block-start: var(--spacing-s-2);
         }
         /* Put some space between paragraphs and code blocks, except if it's in a tip */
         p:has(+ &):not(.c-tip p, ol p) {
-            margin-block-end: var(--spacing-l);
+            margin-block-end: var(--spacing-m);
         }
         li & {
             /* Make code in bullet points slightly smaller */
@@ -409,7 +409,7 @@
 @layer scope {
     .c-tip,
     .c-bordered-image {
-        &:has(+ :is(h2, h3)) {
+        &:has(+ h2) {
             /* Increase e.g. >> /assets */
             margin-block-end: calc(var(--spacing-l-2) + var(--spacing-s-2));
         }
@@ -427,11 +427,15 @@
     }
     /* GROUP ELEMENTS / HR
     =================================================== */
-    /* [1] This first technique is used to fake an hr */
-    hr, .markdown h2:not(:first-of-type), article h2:not(:first-of-type) {
+    /* [1] This first technique is used to fake an hr.
+        - We don't want to use this when we follow a header because it would then appear to high up on the page e.g. /assets
+        - Target direct descendents so that we don't affect components such as .c-icon-grid e.g. /deploying
+    */
+    hr, .markdown h2:not(header + h2), article > h2:not(header + h2) {
         --border-width: 0.3px;
     }
-    .markdown h2:not(:first-of-type), article h2:not(:first-of-type) {
+    .markdown h2:not(header + h2), article > h2:not(header + h2, hr + h2) {
+        position: relative;
         --distance: var(--spacing-l-1);
         margin-block-start: var(--distance);
         p:has(+ &) {

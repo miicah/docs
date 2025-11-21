@@ -725,7 +725,7 @@ public function handle(GlobalVariablesDeleted $event)
 Dispatched after Global Variables have been saved.
 
 ``` php
-public function handle(GlobalVariablesDeleting $event)
+public function handle(GlobalVariablesSaved $event)
 {
     $event->variables;
 }
@@ -1095,7 +1095,7 @@ public function handle(StaticCacheCleared $event)
 ### SubmissionCreated
 `Statamic\Events\SubmissionCreated`
 
-Dispatched after a form submission has been created. This happens after has a form has been submitted on the front-end.
+Dispatched after a form submission has been created. This happens after a form has been submitted on the front-end.
 
 ``` php
 public function handle(SubmissionCreated $event)

@@ -4,7 +4,6 @@
     .c-nav-sidebar-with-popover-api {
         --dropdown-nav-item-padding: 0.25rem;
         position: sticky;
-        grid-area: sidebar-1;
 
         nav,
         nav [popover] {
@@ -98,21 +97,26 @@
             .c-nav-sidebar-with-popover-api-category-heading {
                 display: flex;
                 max-width: 17rem;
-                /* --mq-nav-open-after to --mq-text-bump-2-after */
-                @media (width >= 1100px) and (width < 1441px) {
-                    max-width: 14.85rem;
-                }
+                white-space: nowrap;
                 max-height: 3.2rem;
                 gap: var(--spacing-s-1);
                 align-items: center;
                 justify-content: space-between;
                 padding: var(--spacing-s-3) var(--spacing-m);
                 font-family: var(--font-family-prose);
-                font-size: var(--font-size-l-2);
+                /* Custom */
+                font-size: clamp(1.35em, 6vw, 1.1em);
                 line-height: var(--font-size-l-2-line-height);
                 border-radius: 50px;
                 box-shadow: var(--box-shadow-not-t-light);
                 text-decoration: none;
+                /* --mq-nav-open-after to --mq-text-bump-2-after */
+                @media (width >= 1100px) and (width < 1441px) {
+                    /* Shrink headers when we don't have much space */
+                    max-height: 2.9rem;
+                    max-width: 14rem;
+                    padding-block: var(--spacing-s-4);
+                }
                 &:has(input:checked) {
                     box-shadow: var(--box-shadow-not-t-lighter);
                 }
@@ -135,6 +139,15 @@
                         box-shadow: var(--box-shadow-pink-light);
                     }
                 }
+            }
+
+            .c-nav-sidebar-categories {
+                padding: var(--spacing-s-4) var(--spacing-m);
+                font-family: var(--font-family-prose);
+                font-size: var(--font-size-m);
+                line-height: var(--font-size-m-line-height);
+                box-shadow: var(--box-shadow-not-t-light);
+                border-radius: var(--border-radius-s);
             }
 
             & ul {
@@ -277,6 +290,7 @@
         }
         /* --mq-nav-open-after */
         @media (width >= 1100px) {
+            grid-area: sidebar-1;
             --top: 8.5rem;
             top: var(--top);
             block-size: calc(100vh - var(--top) - 6.5rem);
@@ -305,7 +319,7 @@
             }
             .c-nav-sidebar-with-popover-api__desktop ul:not(ul ul) {
                 /* Need to cut this short a little to force scrolling when there are a lot of items. */
-                height: 80dvh;
+                height: 84dvh;
                 /* --mq-text-bump-2-before */
                 @media (width < 1441px) {
                     max-width: 15.5rem;

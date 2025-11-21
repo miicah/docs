@@ -21,7 +21,7 @@
             $el.scrollTop = navScrollPosition;
             // Scroll to current menu item if we _didn't_ come from a click in the sidenav
             if (!localStorage.getItem('comingFromSidebarNav')) {
-                $el.querySelector('.o-current-menu-item').scrollIntoView({ block: 'center' });
+                $el.querySelector('.o-current-menu-item')?.scrollIntoView({ block: 'center' });
             }
         }
         $el.style.overflow = 'hidden';
@@ -95,4 +95,9 @@
         {{ /if }} #}}
     {{ /nav }}
     {{ /if }}
+    {{ nav:collection:sections include_home="true" }}
+        <li class="c-nav-sidebar-categories u-hide-on-medium-screens u-hide-on-large-screens">
+            <a wire:navigate href="{{ url }}" {{ page:section === section ?= 'class="o-current-menu-item"' }}>{{ nav_title ?? title }}</a>
+        </li>
+    {{ /nav:collection:sections }}
 </ul>

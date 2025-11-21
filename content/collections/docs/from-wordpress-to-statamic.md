@@ -70,11 +70,11 @@ These fields store **structured content**, but don't explicitly give control ove
 
 ## Themes
 
-Statamic uses [Starter Kits](https://statamic.dev/starter-kits) instead of traditional themes. These kits go beyond just styling – they can include plugins, custom code, and entire workflows. 
+Statamic uses [Starter Kits](/starter-kits) instead of traditional themes. These kits go beyond just styling – they can include plugins, custom code, and entire workflows. 
 
 You can [get Starter Kits from the Marketplace](https://statamic.com/starter-kits), where there are free and commercially available options. For example, the first-party [Cool Writings](https://statamic.com/starter-kits/statamic/cool-writings) starter kit is an excellent choice to use as the basis for a simple blog.
 
-We've even made it easy for you to [create your own starter kit](https://statamic.dev/starter-kits/creating-a-starter-kit). So once you've migrated your WordPress site, why not submit it to the marketplace?
+We've even made it easy for you to [create your own starter kit](/starter-kits/creating-a-starter-kit). So once you've migrated your WordPress site, why not submit it to the marketplace?
 
 ## SEO
 
@@ -105,8 +105,6 @@ While there is no do-it-all-and-then-some solution like WooCommerce in the Stata
 [Simple Commerce](https://statamic.com/addons/duncanmcclean/simple-commerce) developed by a core team member, provides essential features like product catalogs, shopping carts, and order management. It can handle digital and physical products, tax calculations, and shipping.
 
 The [Shopify addon](https://statamic.com/addons/rad-pack/shopify) helps you integrate with Shopify's powerful platform — controlling the frontend of your site with Statamic and leaving the heavy cart, checkout flow, and product management to Shopify.
-
-[Charge](https://statamic.com/addons/silentz/charge) is perfect for simpler one-time digital payments or recurring billing for memberships.
 
 [Donation Checkout](https://statamic.com/addons/ghijk/donation-checkout) lets you accept Stripe payments of arbitrary amounts via Stripe Checkout.
 

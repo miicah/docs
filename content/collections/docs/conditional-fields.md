@@ -137,6 +137,31 @@ If you are dealing with a string value, `contains` and `contains_any` will perfo
       favorite_food: 'contains_any pizza, lasagna'
 ```
 
+### Taxonomy Terms
+
+When you want to compare against a taxonomy term, the `contains` term needs to include the taxonomy handle, like `taxonomy::slug`:
+
+```yaml
+-
+  handle: favorite_food
+  field:
+    type: text
+-
+  handle: food_groups
+  field:
+    type: terms
+    taxonomies:
+      - food_groups
+    display: Food Groups
+    mode: select
+-
+  handle: favorite_vegetables
+  field:
+    type: text
+    if:
+      favorite_food: 'contains food_group::vegetables'
+```
+
 ## Advanced comparisons
 
 For more advanced comparisons, several operators and right-hand-side literals/options are available to you.  For example, we could show an `email` field if age is greater than or equal to `16`:
@@ -309,4 +334,4 @@ For more advanced conditional validation, take a look at Laravel's `required_if`
 
 ## Templating
 
-You can take advantage of Conditional Fields on your front-end Forms to automatically generate dynamic forms and logic. [Learn more about it](https://statamic.dev/tags/form-create#conditional-fields).
+You can take advantage of Conditional Fields on your front-end Forms to automatically generate dynamic forms and logic. [Learn more about it](/tags/form-create#conditional-fields).
